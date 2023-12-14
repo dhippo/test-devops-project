@@ -1,0 +1,8 @@
+FROM mysql:latest
+
+ENV MYSQL_ROOT_PASSWORD hippolyte_password
+ENV MYSQL_DATABASE hippolyte_database
+ENV MYSQL_USER hippolyte_user
+ENV MYSQL_PASSWORD hippolyte_user_password
+
+EXPOSE 3306

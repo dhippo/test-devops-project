@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - web-data:/var/www/html
+    depends_on:
+      - redis
+      - db
+
+  redis:
+    image: redis
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  web-data:
+  db-data:
